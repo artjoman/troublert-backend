@@ -3,4 +3,23 @@ camel:
     main-run-controller: true
     
 server:
-  port: 8080    
+  port: 8080
+  
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://ec2-35-171-2-201.compute-1.amazonaws.com:3306/hack    
+    username: root
+    password: root
+  #  name: hack
+  jpa:
+    show-sql: true
+    database: MYSQL
+      
+#    spring.datasource.driverClassName=com.mysql.jdbc.Driver
+#spring.datasource.url=jdbc:mysql://localhost:3306/logparser
+#spring.datasource.username=root
+#spring.datasource.password=root
+#
+#spring.jpa.database = MYSQL
+#spring.jpa.show-sql = true

@@ -8,19 +8,19 @@ import org.apache.camel.dataformat.bindy.annotation.DataField;
 public class CsvLine {
 
 	//2018-04-09 00:00:00
-	 @DataField(pos = 1, position = 11)
+	 @DataField(pos = 1, position = 1)
 	private String datetime;
 	
 	//"LV-1001"
-	 @DataField(pos = 2, position = 12)
+	 @DataField(pos = 2, position = 2)
 	private String postOffice;
 	
 	//1340
-	 @DataField(pos = 3, position = 13)
+	 @DataField(pos = 3, position = 3)
 	private int networkActivity;
 	
 	//10
-	 @DataField(pos = 4, position = 14)
+	 @DataField(pos = 4, position = 4)
 	private int callActivity;
 
 	public String getDatetime() {

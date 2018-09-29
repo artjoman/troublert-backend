@@ -1,3 +1,5 @@
+project.group = 'org.troublert'
+
 apply plugin: 'java'
 apply plugin: 'eclipse'
 
@@ -5,9 +7,24 @@ sourceCompatibility = 1.8
 targetCompatibility = 1.8
 version = '0.1'
 
+
 jar {
 	baseName = 'OpenDataBackend'
 	version = '0.0.1'
+	manifest {
+        attributes 'Main-Class': 'org.troublert.Application'
+    }
+}
+
+task fatJar(type: Jar) {
+	manifest {
+        attributes 'Implementation-Title': 'Gradle Jar File Example',  
+        	'Implementation-Version': version,
+        	'Main-Class': 'org.troublert.Application'
+    }
+    baseName = project.name + '-all'
+    from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
+    with jar
 }
 
 buildscript {
@@ -40,6 +57,30 @@ compile group: 'org.apache.camel', name: 'camel-bindy-starter', version: '2.22.1
 
  // https://mvnrepository.com/artifact/org.apache.camel/camel-stream-starter
 compile group: 'org.apache.camel', name: 'camel-stream-starter', version: '2.22.1'
+
+// https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-data-jpa
+compile group: 'org.springframework.boot', name: 'spring-boot-starter-data-jpa', version: '2.0.5.RELEASE'
+
+
+// https://mvnrepository.com/artifact/mysql/mysql-connector-java
+compile group: 'mysql', name: 'mysql-connector-java', version: '8.0.12'
+
+
+// https://mvnrepository.com/artifact/org.apache.camel/camel-cxf
+compile group: 'org.apache.camel', name: 'camel-cxf', version: '2.22.1'
+
+// https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-web
+compile group: 'org.springframework.boot', name: 'spring-boot-starter-web', version: '2.0.5.RELEASE'
+
+// https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-actuator
+compile group: 'org.springframework.boot', name: 'spring-boot-starter-actuator', version: '2.0.5.RELEASE'
+
+// https://mvnrepository.com/artifact/com.fasterxml.jackson.jaxrs/jackson-jaxrs-json-provider
+compile group: 'com.fasterxml.jackson.jaxrs', name: 'jackson-jaxrs-json-provider', version: '2.9.7'
+
+// https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-web
+compile group: 'org.springframework.boot', name: 'spring-boot-starter-web', version: '2.0.5.RELEASE'
+
  
     
 
